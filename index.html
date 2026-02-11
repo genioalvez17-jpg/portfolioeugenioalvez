@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Eugênio Alvez | Developer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --primary: #00e5ff;
+    --text: #e6edf3;
+    --muted: #8b949e;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* CANVAS FUNDO */
+#universe {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* HEADER */
+header {
+    padding: 80px 20px;
+    text-align: center;
+    background: radial-gradient(circle at top, #00e5ff22, transparent 60%);
+}
+
+/* FOTO PERFIL */
+.avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary);
+    box-shadow: 0 0 25px #00e5ff55;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    color: var(--primary);
+}
+
+header p {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: var(--muted);
+}
+
+/* SECTIONS */
+section {
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--primary);
+}
+
+/* ABOUT */
+.about p {
+    max-width: 800px;
+    font-size: 1.05rem;
+}
+
+/* SKILLS */
+.skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+}
+
+.skill {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #ffffff10;
+    backdrop-filter: blur(4px);
+}
+
+/* PROJECTS */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.project {
+    background: var(--card);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid #ffffff10;
+    transition: transform .3s, box-shadow .3s;
+    backdrop-filter: blur(4px);
+}
+
+.project:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px #00e5ff40;
+}
+
+.project h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+/* CONTACT */
+.contact p {
+    margin-bottom: 15px;
+}
+
+.contact a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--muted);
+    border-top: 1px solid #ffffff10;
+    background: #0d1117aa;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    .avatar {
+        width: 130px;
+        height: 130px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="universe"></canvas>
+
+<header>
+    <img src="perfil.jpg" alt="Foto de Eugênio Alvez" class="avatar">
+    <h1>Eugênio Alvez</h1>
+    <p>Developer • Web • Sistemas • Tecnologia</p>
+</header>
+
+<section class="about">
+    <h2>Sobre mim</h2>
+    <p>
+        Sou desenvolvedor focado em criação de sites, sistemas e soluções digitais modernas.
+        Trabalho com tecnologias atuais, buscando sempre performance, design limpo e
+        experiências intuitivas para o usuário. Também tenho forte ligação com hardware,
+        manutenção e soluções técnicas.
+    </p>
+</section>
+
+<section>
+    <h2>Habilidades</h2>
+    <div class="skills">
+        <div class="skill">HTML5</div>
+        <div class="skill">CSS3</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">Design Responsivo</div>
+        <div class="skill">Criação de Sites</div>
+        <div class="skill">UI / UX</div>
+        <div class="skill">Manutenção Tech</div>
+        <div class="skill">Soluções Digitais</div>
+    </div>
+</section>
+
+<section>
+    <h2>Projetos</h2>
+    <div class="projects">
+        <div class="project">
+            <h3>Sites Institucionais</h3>
+            <p>Criação de sites modernos, rápidos e responsivos para empresas e profissionais.</p>
+        </div>
+
+        <div class="project">
+            <h3>Sistemas Web</h3>
+            <p>Desenvolvimento de sistemas personalizados para controle, gestão e automação.</p>
+        </div>
+
+        <div class="project">
+            <h3>Portfólios & Landing Pages</h3>
+            <p>Páginas focadas em conversão, identidade visual e presença digital.</p>
+        </div>
+    </div>
+</section>
+
+<section class="contact">
+    <h2>Contato</h2>
+    <p>📧 Email: <a href="mailto:genioalvez.17@gmail.com">genioalvez.17@gmail.com</a></p>
+    <p>💼 Disponível para projetos, parcerias e freelas</p>
+</section>
+
+<footer>
+    © 2026 • Eugênio Alvez • Developer
+</footer>
+
+<script>
+const canvas = document.getElementById("universe");
+const ctx = canvas.getContext("2d");
+
+let stars = [];
+const STAR_COUNT = 200;
+
+function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+window.addEventListener("resize", resize);
+resize();
+
+function createStars() {
+    stars = [];
+    for (let i = 0; i < STAR_COUNT; i++) {
+        stars.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            radius: Math.random() * 1.5,
+            speed: Math.random() * 0.6 + 0.2
+        });
+    }
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#ffffff";
+
+    stars.forEach(star => {
+        star.y += star.speed;
+        if (star.y > canvas.height) {
+            star.y = 0;
+            star.x = Math.random() * canvas.width;
+        }
+
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fill();
+    });
+
+    requestAnimationFrame(animate);
+}
+
+createStars();
+animate();
+</script>
+
+</body>
+</html>
